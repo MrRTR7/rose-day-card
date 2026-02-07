@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Rose Day - My Love Tabassum ❤️</title>
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', monospace;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(2, 6, 23, 0.95);
+      border: 4px solid #fb7185;
+      border-radius: 14px;
+      padding: 32px 24px 32px;
+      max-width: 420px;
+      width: 92%;
+      box-shadow: 0 0 0 4px #020617, 0 25px 50px rgba(251, 113, 133, 0.4);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #fb7185;
+      margin-bottom: 8px;
+      text-shadow: 0 3px 0 #be123c, 0 6px 12px rgba(251, 113, 133, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .personalized {
+      font-size: 1.2rem;
+      color: #fda4af;
+      margin-bottom: 4px;
+      font-style: italic;
+      text-shadow: 0 2px 8px rgba(251, 113, 133, 0.3);
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .rose-container {
+      perspective: 1000px;
+      margin: 20px auto 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 240px;
+    }
+
+    .rose-wrapper {
+      width: 200px;
+      height: 200px;
+      animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(251, 113, 133, 0.6));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotateZ(0deg); }
+      50% { transform: translateY(-15px) rotateZ(2deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(251, 113, 133, 0.6)); }
+      50% { filter: drop-shadow(0 0 35px rgba(251, 113, 133, 0.9)); }
+    }
+
+    .message {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #e5e7eb;
+      margin-bottom: 24px;
+      background: rgba(251, 113, 133, 0.05);
+      padding: 16px;
+      border-left: 3px solid #fb7185;
+      border-radius: 6px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #fb7185, #f43f5e);
+      color: #020617;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 6px 0 #be123c, 0 0 20px rgba(251, 113, 133, 0.4);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #be123c, 0 0 30px rgba(251, 113, 133, 0.6);
+    }
+
+    .btn:active {
+      transform: translateY(6px);
+      box-shadow: none;
+    }
+
+    .result {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #fda4af;
+      min-height: 1.5em;
+      animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pixel-frame {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background-size: 16px 16px;
+      image-rendering: pixelated;
+    }
+
+    .tl { 
+      top: 8px; 
+      left: 8px; 
+      background-image: repeating-linear-gradient(90deg, #fb7185 0 4px, transparent 4px 8px), repeating-linear-gradient(#fb7185 0 4px, transparent 4px 8px); 
+    }
+
+    .tr { 
+      top: 8px; 
+      right: 8px; 
+      transform: scaleX(-1); 
+      background-image: repeating-linear-gradient(90deg, #fb7185 0 4px, transparent 4px 8px), repeating-linear-gradient(#fb7185 0 4px, transparent 4px 8px); 
+    }
+
+    .bl { 
+      bottom: 8px; 
+      left: 8px; 
+      transform: scaleY(-1); 
+      background-image: repeating-linear-gradient(90deg, #fb7185 0 4px, transparent 4px 8px), repeating-linear-gradient(#fb7185 0 4px, transparent 4px 8px); 
+    }
+
+    .br { 
+      bottom: 8px; 
+      right: 8px; 
+      transform: scale(-1); 
+      background-image: repeating-linear-gradient(90deg, #fb7185 0 4px, transparent 4px 8px), repeating-linear-gradient(#fb7185 0 4px, transparent 4px 8px); 
+    }
+
+    .hearts {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(#fb7185 2px, transparent 2px), radial-gradient(#fda4af 2px, transparent 2px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      opacity: 0.1;
+    }
+
+    .ui-bar {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #020617;
+      border: 3px solid #fb7185;
+      border-radius: 10px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      color: #fda4af;
+      box-shadow: 0 4px 0 #be123c;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .petal {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fb7185;
+      image-rendering: pixelated;
+      animation: fall linear infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes fall {
+      from { 
+        transform: translateY(-10px) rotateZ(0deg); 
+        opacity: 1;
+      }
+      to { 
+        transform: translateY(110vh) rotateZ(360deg); 
+        opacity: 0;
+      }
+    }
+
+    .stars {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: #fda4af;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pixel-frame">
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+    <div class="hearts"></div>
+  </div>
+
+  <div class="petals" id="petals"></div>
+
+  <div class="card">
+    <div class="ui-bar" id="uiBar">💕 Affection +0 💕</div>
+    
+    <h1>Happy Rose Day 🌹</h1>
+    <div class="personalized">My Love, Tabassum</div>
+    <div class="subtitle">A pixel rose, grown just for you</div>
+
+    <div class="rose-container">
+      <svg class="rose-wrapper" viewBox="0 0 48 48" width="200" height="200" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+        <!-- Outer petals - large and vibrant -->
+        <rect x="6" y="10" width="36" height="8" fill="#fb7185" opacity="0.9"/>
+        <rect x="4" y="12" width="40" height="10" fill="#f43f5e"/>
+        <rect x="3" y="14" width="42" height="8" fill="#e11d48"/>
+        
+        <!-- Middle petals - darker pink -->
+        <rect x="8" y="8" width="32" height="6" fill="#be123c"/>
+        <rect x="10" y="6" width="28" height="5" fill="#9f1239"/>
+        
+        <!-- Inner petals - deep red -->
+        <rect x="14" y="4" width="20" height="4" fill="#7f1d1d"/>
+        <rect x="16" y="2" width="16" height="3" fill="#6b2e2e"/>
+        
+        <!-- Center bud - darkest -->
+        <rect x="18" y="1" width="12" height="2" fill="#4c1414"/>
+        <rect x="20" y="0" width="8" height="1" fill="#2a0808"/>
+        
+        <!-- Left petal accent -->
+        <rect x="2" y="16" width="8" height="6" fill="#f43f5e"/>
+        <rect x="1" y="17" width="3" height="4" fill="#e11d48"/>
+        
+        <!-- Right petal accent -->
+        <rect x="38" y="16" width="8" height="6" fill="#f43f5e"/>
+        <rect x="44" y="17" width="3" height="4" fill="#e11d48"/>
+        
+        <!-- Stem -->
+        <rect x="22" y="22" width="4" height="20" fill="#22c55e"/>
+        <rect x="21" y="24" width="1" height="4" fill="#16a34a"/>
+        <rect x="26" y="26" width="1" height="4" fill="#16a34a"/>
+        <rect x="20" y="30" width="1" height="3" fill="#15803d"/>
+        <rect x="27" y="32" width="1" height="3" fill="#15803d"/>
+        
+        <!-- Left leaf -->
+        <rect x="14" y="28" width="8" height="5" fill="#4ade80"/>
+        <rect x="13" y="29" width="2" height="3" fill="#22c55e"/>
+        <rect x="12" y="30" width="1" height="2" fill="#16a34a"/>
+        
+        <!-- Right leaf -->
+        <rect x="26" y="32" width="8" height="5" fill="#4ade80"/>
+        <rect x="33" y="33" width="2" height="3" fill="#22c55e"/>
+        <rect x="35" y="34" width="1" height="2" fill="#16a34a"/>
+        
+        <!-- Leaf details -->
+        <rect x="14" y="28" width="1" height="1" fill="#22c55e"/>
+        <rect x="20" y="30" width="1" height="1" fill="#22c55e"/>
+        <rect x="26" y="32" width="1" height="1" fill="#22c55e"/>
+        
+        <!-- Highlights on petals -->
+        <rect x="20" y="8" width="2" height="2" fill="#fecdd3"/>
+        <rect x="24" y="6" width="1" height="1" fill="#fecdd3"/>
+        <rect x="18" y="12" width="2" height="1" fill="#fda4af"/>
+        <rect x="28" y="14" width="2" height="1" fill="#fda4af"/>
+      </svg>
+    </div>
+
+    <div class="message">
+      I know this is just pixels and light,<br />
+      but every little square was placed with you in mind.<br />
+      <br />
+      One rose, infinite affection.<br />
+      Forever yours 💗
+    </div>
+
+    <button class="btn" onclick="acceptRose()">Accept the Rose 💗</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function acceptRose() {
+      const result = document.getElementById('result');
+      const uiBar = document.getElementById('uiBar');
+      const affection = parseInt(uiBar.innerText.match(/\d+/)[0]) + 1;
+      
+      result.innerText = "🌹 Rose accepted. Love level increased. 💕";
+      uiBar.innerText = `💕 Affection +${affection} 💕`;
+      
+      // Create extra petals on click
+      for (let i = 0; i < 8; i++) {
+        const p = document.createElement('div');
+        p.className = 'petal';
+        p.style.left = (Math.random() * 20 + 40) + 'vw';
+        p.style.top = '50vh';
+        p.style.animationDuration = (2 + Math.random() * 2) + 's';
+        p.style.opacity = (0.6 + Math.random() * 0.4);
+        document.getElementById('petals').appendChild(p);
+      }
+    }
+
+    // Generate floating pixel petals
+    const petalContainer = document.getElementById('petals');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = (5 + Math.random() * 5) + 's';
+      p.style.animationDelay = Math.random() * 8 + 's';
+      p.style.opacity = 0.3 + Math.random() * 0.7;
+      petalContainer.appendChild(p);
+    }
+
+    // Generate twinkling stars in background
+    for (let i = 0; i < 20; i++) {
+      const star = document.createElement('div');
+      star.className = 'stars';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
